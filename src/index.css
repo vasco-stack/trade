@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-sei-bg: #000000;
+  --color-sei-surface: #1C1C1E;
+  --color-sei-border: #2A2A2C;
+  --color-sei-text: #FFFFFF;
+  --color-sei-muted: #8E8E93;
+  --color-sei-green: #4ADE80;
+  --color-sei-red: #FF453A;
+  --color-sei-teal: #1AE7B4;
+  --color-sei-amber: #F59E0B;
+  --font-grotesk: 'Space Grotesk', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  background: #000000;
+  color: #FFFFFF;
+  font-family: 'Space Grotesk', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #1C1C1E 25%, #2A2A2C 50%, #1C1C1E 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 6px;
+}
+
+@keyframes checkScale {
+  0% { transform: scale(0); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.check-animate {
+  animation: checkScale 0.5s ease-out forwards;
+}
+
+/* Button press states — spring scale feedback */
+button {
+  transition: transform 0.1s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+button:active {
+  transform: scale(0.97);
+}
+
+/* Input focus glow — teal */
+input:focus {
+  border-color: rgba(26, 231, 180, 0.5);
+  box-shadow: 0 0 0 3px rgba(26, 231, 180, 0.1);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.glow-green {
+  text-shadow: 0 0 20px rgba(74, 222, 128, 0.4);
+}
+.glow-red {
+  text-shadow: 0 0 20px rgba(255, 69, 58, 0.4);
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  scrollbar-width: none;
+}
